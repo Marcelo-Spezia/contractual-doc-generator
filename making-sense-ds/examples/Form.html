@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Form Example — Making Sense DS</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  body { font-family: var(--font-sans); padding: 32px; background: var(--ms-white); color: var(--fg-1); max-width: 560px; }
+  h2 { font: var(--h2); letter-spacing: var(--ls-tight); margin: 0 0 8px; }
+  .sub { font: var(--body); color: var(--fg-2); margin: 0 0 28px; text-wrap: pretty; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  label { font: 600 11px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); }
+  .req  { color: var(--ms-green); }
+
+  input, textarea {
+    font: 400 15px/1.4 var(--font-sans);
+    padding: 13px 16px;
+    border: 1.5px solid var(--ms-grey-300);
+    border-radius: var(--radius-md);
+    background: var(--ms-white);
+    color: var(--ms-dark);
+    width: 100%; box-sizing: border-box;
+    transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+    appearance: none;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--ms-blue);
+    box-shadow: 0 0 0 3px rgba(0,198,209,0.15);
+  }
+  textarea { resize: vertical; min-height: 110px; }
+
+  .btn-submit {
+    font: 800 12px/1 var(--font-sans);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    padding: 15px 32px;
+    border-radius: var(--radius-pill);
+    background: var(--ms-gradient);
+    color: var(--ms-dark);
+    border: none; cursor: pointer; margin-top: 6px;
+    transition: box-shadow var(--dur-base), transform var(--dur-base);
+  }
+  .btn-submit:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+</style>
+</head>
+<body>
+  <h2>Let's connect!</h2>
+  <p class="sub">Tell us about your next challenge. We're here to help you achieve your goals and create value together.</p>
+
+  <div class="row-2">
+    <div class="field"><label>Name <span class="req">*</span></label><input type="text" placeholder="Jamie Vargas"></div>
+    <div class="field"><label>Business email <span class="req">*</span></label><input type="email" placeholder="jamie@company.com"></div>
+  </div>
+  <div class="row-2">
+    <div class="field"><label>Company <span class="req">*</span></label><input type="text" placeholder="Acme Co."></div>
+    <div class="field"><label>Role <span class="req">*</span></label><input type="text" placeholder="e.g. CTO"></div>
+  </div>
+  <div class="field"><label>Message <span class="req">*</span></label><textarea placeholder="Tell us what you're working on…"></textarea></div>
+  <button class="btn-submit">Submit</button>
+</body>
+</html>

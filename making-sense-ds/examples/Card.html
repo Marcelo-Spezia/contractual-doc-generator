@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Card Examples — Making Sense DS</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  body { font-family: var(--font-sans); padding: 32px; background: var(--ms-grey-50); color: var(--fg-1); }
+  h2 { font: var(--h3); margin: 0 0 20px; letter-spacing: var(--ls-snug); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+  .label { font: var(--caption); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--fg-3); margin-bottom: 12px; }
+
+  /* Service card */
+  .card {
+    background: var(--ms-white);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--dur-base) var(--ease-out),
+                transform var(--dur-base) var(--ease-out);
+    cursor: pointer;
+  }
+  .card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .card img { width: 48px; height: auto; margin-bottom: 16px; }
+  .card h4 { font: 700 17px/1.25 var(--font-sans); letter-spacing: var(--ls-snug); color: var(--fg-1); margin: 0 0 8px; }
+  .card p  { font: 400 13px/1.55 var(--font-sans); color: var(--fg-2); margin: 0 0 16px; }
+  .tag { display: inline-flex; font: 600 11px/1 var(--font-sans); padding: 5px 10px; border-radius: var(--radius-pill); border: 1px solid var(--ms-grey-300); color: var(--fg-2); margin: 0 4px 4px 0; }
+
+  /* Dark card */
+  .card-dark {
+    background: var(--ms-dark);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    position: relative; overflow: hidden;
+  }
+  .card-dark::after {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--ms-gradient);
+  }
+  .card-dark img { width: 48px; height: auto; margin-bottom: 16px; }
+  .card-dark h4 { font: 700 17px/1.25 var(--font-sans); color: #fff; margin: 0 0 8px; }
+  .card-dark p  { font: 400 13px/1.55 var(--font-sans); color: rgba(255,255,255,0.7); margin: 0; }
+</style>
+</head>
+<body>
+  <h2>Cards</h2>
+
+  <div class="label">Service cards — light</div>
+  <div class="grid">
+    <div class="card">
+      <img src="../assets/icons/svg/ArtificialIntelligence.svg" alt="">
+      <h4>Agentic AI Solutions</h4>
+      <p>Autonomous AI that reasons, executes, and delivers results independently.</p>
+      <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">LangGraph</span>
+    </div>
+    <div class="card">
+      <img src="../assets/icons/svg/Workflow.svg" alt="">
+      <h4>Intelligent workflow automation</h4>
+      <p>Connect systems, eliminate manual tasks, and scale operations end-to-end.</p>
+      <span class="tag">n8n</span><span class="tag">Zapier</span>
+    </div>
+    <div class="card">
+      <img src="../assets/icons/svg/Code.svg" alt="">
+      <h4>AI-enabled software development</h4>
+      <p>Embed AI into your development lifecycle — ship faster, with higher quality.</p>
+      <span class="tag">Claude Code</span><span class="tag">Cursor</span>
+    </div>
+  </div>
+
+  <div class="label">Dark cards</div>
+  <div class="grid">
+    <div class="card-dark">
+      <img src="../assets/icons/svg/Security.svg" alt="">
+      <h4>Security & compliance</h4>
+      <p>AI-ready governance frameworks built for regulated industries.</p>
+    </div>
+    <div class="card-dark">
+      <img src="../assets/icons/svg/Data.svg" alt="">
+      <h4>Data & integrations</h4>
+      <p>Connect your stack and unlock the data that powers intelligent decisions.</p>
+    </div>
+    <div class="card-dark">
+      <img src="../assets/icons/svg/Scalability.svg" alt="">
+      <h4>Scalable architecture</h4>
+      <p>Design systems that grow with your business from day one.</p>
+    </div>
+  </div>
+</body>
+</html>

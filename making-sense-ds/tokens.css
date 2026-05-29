@@ -1,0 +1,254 @@
+/* =========================================================================
+   Making Sense Design System — Production Tokens
+   Version: 1.0.0
+   Usage: import once at the root of your app.
+   ========================================================================= */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-MediumItalic.ttf") format("truetype");
+  font-weight: 500; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-SemiBold.ttf") format("truetype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-BoldItalic.ttf") format("truetype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-ExtraBold.ttf") format("truetype");
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./fonts/RedHatDisplay-Black.ttf") format("truetype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+:root {
+
+  /* =================================================================
+     COLOR — Primary brand
+     ================================================================= */
+  --ms-green:        #0ECC7E;   /* Making-green · Pantone 7479C  */
+  --ms-blue:         #00C6D1;   /* Sense-blue   · Pantone 3115C  */
+  --ms-dark:         #102532;   /* Dark-blue    · Pantone 539C   */
+  --ms-green-deep:   #08B368;
+  --ms-blue-deep:    #00A8B2;
+  --ms-mint:         #7FE3C2;
+  --ms-mint-pale:    #E6FAF3;
+
+  /* Signature gradient */
+  --ms-gradient:     linear-gradient(90deg, #0ECC7E 0%, #00C6D1 100%);
+  --ms-gradient-v:   linear-gradient(180deg, #0ECC7E 0%, #00C6D1 100%);
+  --ms-gradient-d:   linear-gradient(135deg, #0ECC7E 0%, #00C6D1 100%);
+
+  /* =================================================================
+     COLOR — Secondary brand
+     ================================================================= */
+  --ms-purple:       #9273F4;   /* Pantone 265C  */
+  --ms-red:          #FF5551;   /* Pantone 1785C */
+  --ms-orange:       #FFA143;   /* Pantone 150C  */
+
+  /* =================================================================
+     COLOR — Grey scale (official 12-step)
+     ================================================================= */
+  --ms-white:        #FFFFFF;
+  --ms-grey-50:      #F9F9F9;
+  --ms-grey-100:     #F4F4F4;
+  --ms-grey-200:     #EEEEEE;
+  --ms-grey-300:     #E0E0E0;
+  --ms-grey-400:     #BDBDBD;
+  --ms-grey-500:     #9E9E9E;
+  --ms-grey-600:     #757575;
+  --ms-grey-700:     #616161;
+  --ms-grey-800:     #424242;
+  --ms-grey-900:     #212121;
+  --ms-black:        #000000;
+
+  /* =================================================================
+     COLOR — Semantic
+     ================================================================= */
+  --ms-success:      var(--ms-green);
+  --ms-warning:      var(--ms-orange);
+  --ms-danger:       var(--ms-red);
+  --ms-info:         var(--ms-blue);
+
+  /* =================================================================
+     COLOR — Usage tokens
+     ================================================================= */
+  --fg-1:            var(--ms-dark);
+  --fg-2:            var(--ms-grey-600);
+  --fg-3:            var(--ms-grey-500);
+  --fg-on-dark:      #FFFFFF;
+  --fg-on-dark-2:    rgba(255,255,255,0.72);
+  --fg-accent:       var(--ms-blue-deep);
+
+  --bg-0:            #FFFFFF;
+  --bg-1:            var(--ms-grey-50);
+  --bg-2:            var(--ms-grey-100);
+  --bg-dark:         var(--ms-dark);
+  --bg-darker:       #0A1A24;
+
+  --border-1:        var(--ms-grey-300);
+  --border-2:        var(--ms-grey-400);
+  --border-on-dark:  rgba(255,255,255,0.12);
+
+  /* =================================================================
+     TYPOGRAPHY
+     ================================================================= */
+  --font-sans: "Red Hat Display", ui-sans-serif, system-ui, -apple-system,
+               "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
+               "Liberation Mono", monospace;
+
+  /* Scale */
+  --fs-12: 0.75rem;   --lh-12: 1.5;
+  --fs-14: 0.875rem;  --lh-14: 1.5;
+  --fs-16: 1rem;      --lh-16: 1.6;
+  --fs-18: 1.125rem;  --lh-18: 1.55;
+  --fs-20: 1.25rem;   --lh-20: 1.5;
+  --fs-24: 1.5rem;    --lh-24: 1.4;
+  --fs-32: 2rem;      --lh-32: 1.25;
+  --fs-40: 2.5rem;    --lh-40: 1.15;
+  --fs-56: 3.5rem;    --lh-56: 1.05;
+  --fs-72: 4.5rem;    --lh-72: 1.0;
+
+  /* Semantic type styles */
+  --display-1: 900 var(--fs-72)/var(--lh-72) var(--font-sans);
+  --display-2: 900 var(--fs-56)/var(--lh-56) var(--font-sans);
+  --h1:        800 var(--fs-40)/var(--lh-40) var(--font-sans);
+  --h2:        700 var(--fs-32)/var(--lh-32) var(--font-sans);
+  --h3:        700 var(--fs-24)/var(--lh-24) var(--font-sans);
+  --h4:        600 var(--fs-20)/var(--lh-20) var(--font-sans);
+  --h5:        600 var(--fs-18)/var(--lh-18) var(--font-sans);
+  --body-lg:   400 var(--fs-18)/var(--lh-18) var(--font-sans);
+  --body:      400 var(--fs-16)/var(--lh-16) var(--font-sans);
+  --body-sm:   400 var(--fs-14)/var(--lh-14) var(--font-sans);
+  --caption:   500 var(--fs-12)/var(--lh-12) var(--font-sans);
+  --eyebrow:   700 var(--fs-12)/1.2 var(--font-sans);
+  --code:      500 var(--fs-14)/var(--lh-14) var(--font-mono);
+
+  /* Letter-spacing */
+  --ls-tight:   -0.02em;
+  --ls-snug:    -0.01em;
+  --ls-normal:   0;
+  --ls-wide:     0.04em;
+  --ls-eyebrow:  0.12em;
+
+  /* =================================================================
+     SPACING — 4px base grid
+     ================================================================= */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* =================================================================
+     RADII
+     ================================================================= */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;   /* buttons always use this */
+
+  /* =================================================================
+     SHADOWS — neutral grey only, never tinted
+     ================================================================= */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 20px rgba(0,0,0,0.10);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.14);
+
+  /* =================================================================
+     MOTION
+     ================================================================= */
+  --ease-out:    cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.5, 0, 0.2, 1);
+  --dur-fast:    120ms;
+  --dur-base:    200ms;
+  --dur-slow:    320ms;
+
+  /* =================================================================
+     LAYOUT
+     ================================================================= */
+  --container-max: 1200px;
+  --gutter:        24px;
+}
+
+/* =================================================================
+   Reset + base
+   ================================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font: var(--body);
+  color: var(--fg-1);
+  background: var(--bg-0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Utility classes */
+.ms-eyebrow {
+  font: var(--eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--ms-green);
+}
+.ms-gradient-text {
+  background: var(--ms-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.ms-gradient-bg  { background: var(--ms-gradient); color: var(--ms-dark); }
+.ms-container    { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); }

@@ -1,0 +1,66 @@
+{
+  "fixed_fee": {
+    "id": "fixed_fee",
+    "name": "Fixed Fee SOW",
+    "version": "v1.0",
+    "fileName": "01_SOW_Template_Fixed_Fee.docx",
+    "lastApprovedDate": "2026-05-22",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "monthly_team": {
+    "id": "monthly_team",
+    "name": "Monthly Fee — Team SOW",
+    "version": "v1.0",
+    "fileName": "02_SOW_Template_Monthly_Fee_Team.docx",
+    "lastApprovedDate": "2026-05-22",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "monthly_individual": {
+    "id": "monthly_individual",
+    "name": "Monthly Fee — Individual SOW",
+    "version": "v1.0",
+    "fileName": "03_SOW_Template_Monthly_Fee_Individual.docx",
+    "lastApprovedDate": "2026-05-22",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "tm": {
+    "id": "tm",
+    "name": "Time & Materials SOW",
+    "version": "v1.0",
+    "fileName": "04_SOW_Template_Time_and_Materials.docx",
+    "lastApprovedDate": "2026-05-22",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "ai_pod": {
+    "id": "ai_pod",
+    "name": "AI Pod SOW",
+    "version": "v1.0",
+    "fileName": "05_SOW_Template_AI_Pod.docx",
+    "lastApprovedDate": "2026-05-22",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "nda": {
+    "id": "nda",
+    "name": "Mutual NDA",
+    "version": "v1.0",
+    "fileName": "07_Template_Mutual_NDA.docx",
+    "lastApprovedDate": "2026-05-29",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "msa": {
+    "id": "msa",
+    "name": "Master Services Agreement",
+    "version": "v1.0",
+    "fileName": "08_Template_MSA.docx",
+    "lastApprovedDate": "2026-05-29",
+    "approvedBy": "legal@makingsense.com"
+  },
+  "amendment": {
+    "id": "amendment",
+    "name": "Amendment to SOW",
+    "version": "v1.0",
+    "fileName": "09_Template_Amendment_to_SOW.docx",
+    "lastApprovedDate": "2026-05-29",
+    "approvedBy": "legal@makingsense.com"
+  }
+}

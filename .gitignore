@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# TypeScript incremental + generated
+*.tsbuildinfo
+next-env.d.ts
+
+# macOS / OS noise
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Local editor / agent state
+.claude/
+.vscode/
+.idea/
+
+# Runtime data (per-environment; never commit user emails or generated SOWs)
+data/audit_log.json
+
+# Local logs
+*.log
+/tmp/
+
+# Environment files (none used yet, but reserve)
+.env
+.env.local
+.env.*.local
