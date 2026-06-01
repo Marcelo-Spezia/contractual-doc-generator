@@ -15,7 +15,7 @@ import {
   type FieldDef,
   type RepeatGroup,
 } from "@/lib/schema";
-import { getUser, saveDraft, getDraft, type Draft } from "@/lib/draft";
+import { saveDraft, getDraft, type Draft } from "@/lib/draft";
 
 type Phase = "doctype" | "model" | "details";
 
@@ -209,13 +209,12 @@ export default function Wizard() {
       showToast("Please fix the highlighted fields", true);
       return;
     }
-    const userEmail = getUser() || "";
     setBusy(true);
     try {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ templateId, userEmail, fields: buildPayload() }),
+        body: JSON.stringify({ templateId, fields: buildPayload() }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));

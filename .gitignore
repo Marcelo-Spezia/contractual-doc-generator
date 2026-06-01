@@ -19,8 +19,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Runtime data (per-environment; never commit user emails or generated SOWs)
+# Runtime data (per-environment; never commit user emails, password hashes, or generated SOWs)
 data/audit_log.json
+data/users.json
 
 # Local logs
 *.log

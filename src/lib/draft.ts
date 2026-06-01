@@ -2,21 +2,7 @@
 
 import type { TemplateId } from "./schema";
 
-const AUTH_KEY = "ms_sow_user";
 const DRAFT_PREFIX = "ms_sow_draft:";
-
-export function getUser(): string | null {
-  if (typeof window === "undefined") return null;
-  return window.localStorage.getItem(AUTH_KEY);
-}
-
-export function setUser(email: string) {
-  window.localStorage.setItem(AUTH_KEY, email);
-}
-
-export function clearUser() {
-  window.localStorage.removeItem(AUTH_KEY);
-}
 
 export interface Draft {
   id: string;

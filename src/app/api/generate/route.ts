@@ -2,16 +2,21 @@ import { NextResponse } from "next/server";
 import { buildAuditFields, generateDocx, validatePayload } from "@/lib/generate";
 import { appendAuditEntry } from "@/lib/audit";
 import { TEMPLATE_SCHEMAS, type TemplateId } from "@/lib/schema";
+import { getSession } from "@/lib/session";
 
 export const runtime = "nodejs";
 
 interface GenerateBody {
   templateId: TemplateId;
-  userEmail: string;
   fields: Record<string, string>;
 }
 
 export async function POST(req: Request) {
+  const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: "Not signed in" }, { status: 401 });
+  }
+
   let body: GenerateBody;
   try {
     body = await req.json();
@@ -19,12 +24,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { templateId, userEmail, fields } = body;
+  const { templateId, fields } = body;
   if (!templateId || !TEMPLATE_SCHEMAS[templateId]) {
     return NextResponse.json({ error: "Unknown or missing templateId" }, { status: 400 });
-  }
-  if (!userEmail || !/@makingsense\.com$/i.test(userEmail)) {
-    return NextResponse.json({ error: "A @makingsense.com user email is required" }, { status: 401 });
   }
 
   const issues = validatePayload(templateId, fields || {});
@@ -37,7 +39,7 @@ export async function POST(req: Request) {
     const auditFields = buildAuditFields(templateId, fields);
 
     await appendAuditEntry({
-      userEmail,
+      userEmail: session.email, // derived from the signed session cookie, not the request body
       templateId,
       templateVersion: meta.version,
       ...auditFields,
