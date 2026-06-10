@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 import type { UserRole } from "@/lib/users";
 
 export default function AppShell({
@@ -14,18 +14,11 @@ export default function AppShell({
   role: UserRole;
   children: React.ReactNode;
 }) {
-  const router = useRouter();
   const [busy, setBusy] = useState(false);
 
-  async function signOut() {
+  async function handleSignOut() {
     setBusy(true);
-    try {
-      await fetch("/api/auth/logout", { method: "POST" });
-    } finally {
-      // Force a server-side re-render so the layout's session check picks up the cleared cookie.
-      router.refresh();
-      window.location.href = "/";
-    }
+    await signOut({ callbackUrl: "/" });
   }
 
   return (
@@ -39,7 +32,7 @@ export default function AppShell({
           {email}
           {role === "admin" ? " · admin" : ""}
         </span>
-        <button className="btn ghost sm" onClick={signOut} disabled={busy}>
+        <button className="btn ghost sm" onClick={handleSignOut} disabled={busy}>
           {busy ? "Signing out…" : "Sign out"}
         </button>
       </header>

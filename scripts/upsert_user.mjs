@@ -1,14 +1,12 @@
 #!/usr/bin/env node
-// Create or update a user in data/users.json.
+// Add or update a user in data/users.json so they can sign in via Google SSO.
+// Identity comes from Google; this file is only a whitelist + role map.
 //
 // Usage:
-//   ADMIN_PASSWORD=secret node scripts/create_user.mjs --email=alice@makingsense.com --role=admin
-//
-// Reading the password from an env var (instead of an argv flag) keeps it out of
-// your shell history. The script never prints the plaintext password back.
+//   node scripts/upsert_user.mjs --email=alice@makingsense.com --role=user
+//   node scripts/upsert_user.mjs --email=mspezia@makingsense.com --role=admin
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { randomBytes, scryptSync } from "node:crypto";
 import path from "node:path";
 
 const args = Object.fromEntries(
@@ -23,7 +21,6 @@ const args = Object.fromEntries(
 
 const email = String(args.email || "").trim().toLowerCase();
 const role = args.role === "admin" ? "admin" : "user";
-const password = process.env.ADMIN_PASSWORD;
 
 if (!email) {
   console.error("Missing --email=...");
@@ -32,21 +29,6 @@ if (!email) {
 if (!/^[^@\s]+@makingsense\.com$/.test(email)) {
   console.error("Email must end in @makingsense.com");
   process.exit(2);
-}
-if (!password || password.length < 8) {
-  console.error("Missing ADMIN_PASSWORD env var (>= 8 chars)");
-  process.exit(2);
-}
-
-const SCRYPT = { N: 16384, r: 8, p: 1, keyLen: 64 };
-function hashPassword(plain) {
-  const salt = randomBytes(16);
-  const hash = scryptSync(plain, salt, SCRYPT.keyLen, {
-    N: SCRYPT.N,
-    r: SCRYPT.r,
-    p: SCRYPT.p,
-  });
-  return `scrypt$${SCRYPT.N}$${SCRYPT.r}$${SCRYPT.p}$${salt.toString("hex")}$${hash.toString("hex")}`;
 }
 
 const USERS_PATH = path.join(process.cwd(), "data", "users.json");
@@ -58,15 +40,14 @@ try {
   /* first run */
 }
 
-const passwordHash = hashPassword(password);
 const i = users.findIndex((u) => u.email.toLowerCase() === email);
+const existing = i >= 0 ? users[i] : null;
 const record = {
   email,
-  passwordHash,
   role,
-  createdAt: i >= 0 ? users[i].createdAt : new Date().toISOString(),
+  createdAt: existing?.createdAt ?? new Date().toISOString(),
 };
-if (i >= 0) users[i] = record;
+if (i >= 0) users[i] = { ...existing, ...record };
 else users.push(record);
 
 await mkdir(path.dirname(USERS_PATH), { recursive: true });
